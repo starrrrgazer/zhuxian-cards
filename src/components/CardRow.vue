@@ -1,7 +1,7 @@
 <!-- CardRow.vue：单张卡的 UI + 交互 -->
 <!-- 管理一张卡的选择状态
 （卡牌类型 + 星级） -->
-import { cards } from "@/models/cardDB";
+
 
 <template>
   <div class="card-row">
@@ -18,8 +18,8 @@ import { cards } from "@/models/cardDB";
 
     <!-- 星级选择 -->
     <select v-model.number="localCard.star">
-      <option v-for="s in maxStar" :key="s - 1" :value="s - 1">
-        {{ s }} 星
+      <option v-for="s in 7" :key="s - 1" :value="s - 1">
+        {{ s-1 }} 星
       </option>
     </select>
 
@@ -30,7 +30,7 @@ import { cards } from "@/models/cardDB";
 
 <script setup>
 import { computed, watch } from "vue";
-import { cards } from "@/models/cardDB";
+import { cards, cardKeys } from "@/models/cards";
 
 // props：父组件传入的一张卡
 const props = defineProps({
@@ -55,10 +55,10 @@ const localCard = computed({
 });
 
 // 最大星级（由卡牌数据决定）
-const maxStar = computed(() => {
-  const card = cards[localCard.value.cardKey];
-  return card ? card.starMultiplier.length : 1;
-});
+// const maxStar = computed(() => {
+//   const card = cards[localCard.value.cardKey];
+//   return card ? card.starMultiplier.length : 6;
+// });
 </script>
 
 <style scoped>

@@ -12,8 +12,11 @@
 // }
 
 // src/utils/calc.js
-import { cards } from "@/models/cardDB";
+import { cards } from "@/models/cards";
 import { applyCombo } from "@/models/comboRules";
+// const card = cards[cardKey];
+// const damage = card.getDamage(star);
+// const cost = card.getCost(star);
 /**
  * 计算一副卡牌的总伤害和总花费
  * @param {Array} deck - 数组，每个元素 { cardKey, star }

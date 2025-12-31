@@ -29,7 +29,7 @@
 <script setup>
 import { reactive } from "vue";
 import CardRow from "./CardRow.vue";
-import { cardKeys } from "@/models/cardDB";
+import { cardKeys } from "@/models/cards";
 
 /**
  * deck 中每个元素结构：
